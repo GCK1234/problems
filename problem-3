@@ -1,0 +1,28 @@
+package com.gck.java;
+
+import java.util.Scanner;
+
+public class OddSeriesCustom {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input
+        System.out.print("Enter a number (a): ");
+        int a = scanner.nextInt();
+
+        // If a is even, use a - 1 to mimic the example behavior
+        int terms = (a % 2 == 0) ? a - 1 : a;
+
+        System.out.print("Output: ");
+        for (int i = 0; i < terms; i++) {
+            int oddNumber = 2 * i + 1;
+            System.out.print(oddNumber);
+            if (i < terms - 1) {
+                System.out.print(", ");
+            }
+        }
+
+        System.out.println(); // for newline
+        scanner.close();
+    }
+}
