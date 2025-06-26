@@ -1,0 +1,32 @@
+package com.gck.java;
+
+import java.util.*;
+
+public class MultiplesCounter {
+
+    public static void main(String[] args) {
+        // Input list
+        List<Integer> numbers = Arrays.asList(1, 2, 8, 9, 12, 46, 76, 82, 15, 20, 30);
+
+        // Map to store result
+        Map<Integer, Integer> multiplesCount = new HashMap<>();
+
+        // Initialize map with 0 count for keys 1 to 9
+        for (int i = 1; i <= 9; i++) {
+            multiplesCount.put(i, 0);
+        }
+
+        // Count how many numbers are divisible by each number from 1 to 9
+        for (int divisor = 1; divisor <= 9; divisor++) {
+            for (int num : numbers) {
+                if (num % divisor == 0) {
+                    multiplesCount.put(divisor, multiplesCount.get(divisor) + 1);
+                }
+            }
+        }
+
+        // Output the result
+        System.out.println("Output:");
+        System.out.println(multiplesCount);
+    }
+}
