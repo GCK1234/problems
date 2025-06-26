@@ -1,0 +1,56 @@
+package com.gck.java;
+import java.util.Scanner;
+
+public class Calculator {
+
+
+
+
+        // Method to perform calculation
+        public double calculate(double a, double b, String operation) {
+            switch (operation.toLowerCase()) {
+                case "add":
+                case "+":
+                    return a + b;
+                case "subtract":
+                case "-":
+                    return a - b;
+                case "multiply":
+                case "*":
+                    return a * b;
+                case "divide":
+                case "/":
+                    if (b == 0) {
+                        throw new ArithmeticException("Division by zero is not allowed.");
+                    }
+                    return a / b;
+                default:
+                    throw new IllegalArgumentException("Invalid operation type.");
+            }
+        }
+
+        // Main method
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            // Input
+            System.out.print("Enter first number (a): ");
+            double a = scanner.nextDouble();
+
+            System.out.print("Enter second number (b): ");
+            double b = scanner.nextDouble();
+
+            System.out.print("Enter operation (add, subtract, multiply, divide): ");
+            String operation = scanner.next();
+
+            Calculator calc = new Calculator();
+            try {
+                double result = calc.calculate(a, b, operation);
+                System.out.println("Result: " + result);
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+
+            scanner.close();
+        }
+    }
